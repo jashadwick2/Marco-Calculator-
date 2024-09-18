@@ -1,0 +1,198 @@
+#Workout Generator 
+import random 
+import sys
+
+#Workout Types
+bodyweight = ["Push ups", "Pull ups", "Chin ups", "Bench Dips", "Squats", "Lunges", "Burpees", "Planks", "Mountain Climbers", "Jump Squats", "Jumping Lunges", "Jumping Jacks", "Wall Sits", "Calf Raises", "Superman", "Glute Bridges", "Pike Push ups", "Bear Crawls", "Pistol Squats", "Box Jumps"]
+
+dumbbell_exercises = ["Dumbbell Bench Press", "Dumbbell Shoulder Press", "Dumbbell Bicep Curl", "Dumbbell Tricep Extension", "Dumbbell Flys", "Dumbbell Pullover", "Dumbbell Lateral Raises", "Dumbbell Front Raises", "Dumbbell Shrugs", "Dumbbell Bent Over Row", "Dumbbell Romanian Deadlift", "Dumbbell Squat", "Dumbbell Lunges", "Dumbbell Step ups", "Dumbbell Goblet Squat", "Dumbbell Sumo Squat", "Dumbbell Calf Raises", "Dumbbell Side Bends", "Dumbbell Renegade Rows", "Dumbbell Arnold Press", "Dumbbell Bent Over Reverse Flys", "Dumbbell Hammer Curls", "Dumbbell Concentration Curls", "Dumbbell Skull Crushers", "Dumbbell Kickbacks", "Dumbbell Farmer Carries"]
+
+#ab_exercises = ["Elbow to Knee", "Penguins", "Plank hip dips", "Oblique crunches", "Russian Twist", "Ball crunches", "Leg raises", "Reverse crunch", "Leg Raises", "Flutter Kicks"]
+
+chest_exercises = ["Flat Bench Press", "Incline Bench Press", "Decline Bench Press", "Standard Push-Ups", "Incline Push-Ups", "Decline Push-Ups", "Pike Push Ups", "Diamond Pushups", "Dumbbell Flys", "Incline Dumbbell Flys", "Dumbbell Bench Press", "Incline Dumbbell Press", "Decline Dumbbell Press", "Hi to Low Cable Crossovers", "Lo to Hi Cable Crossovers", "Single-Arm Cable Flys", "Chest Press Machine", "Pec Deck Flys", "T-Bar Chest Press"]
+
+back_exercises = ["Pull-Ups", "Chin-Ups", "Barbell Bent-Over Rows", "Deadlifts", "Wide Grip Lat Pulldowns", "Close Grip Lat Pulldowns", "Single Arm Lat Pulldowns", "Seated Cable Rows", "T-Bar Rows", "Dumbbell Rows", "Face Pulls","Hyperextensions", "Single-Arm Dumbbell Rows", "Inverted Rows", "Rack Pulls", "Renegade Rows"]
+
+shoulder_exercises = ["Barbell Overhead Press", "Dumbbell Shoulder Press", "Lateral Raises", "Front Raises", "Dumbbell Rear Delt Flys", "Cable Rear Delt Flys", "Arnold Press", "Upright Rows", "Face Pulls", "Dumbbell Shrugs", "Barbell Shrugs", "Cable Lateral Raises", "Cable Front Raises", "Dumbbell Upright Rows", "Seated Dumbbell Press"]
+
+bicep_exercises = ["Bicep Curls", "Hammer Curls", "Preacher Curls", "Concentration Curls", "Incline Dumbbell Curls", "Barbell Curls", "Cable Curls", "Zottman Curls", "Reverse Curls", "21's", "Alternating Dumbbell Curls", "Cross-Body Hammer Curls" "Machine Curls", "Barbell Curls"]
+
+tricep_exercises = ["Tricep Bench Dips", "Tricep Pushdowns", "Overhead Tricep Extension", "Dumbbell Skull Crushers", "EZ Bar / Barbell Skull Crushers", "Close-Grip Bench Press", "Tricep Kickbacks", "Diamond Push-Ups", "Cable Overhead Tricep Extension", "Single-Arm Tricep Pushdowns", "Machine Tricep Extensions"]
+
+leg_exercises = ["Back Squat", "Front Squat", "Box Squats", "Deadlifts", "Lunges", "Leg Press", "Leg Extensions", "Leg Curls", "Romanian Deadlifts", "Bulgarian Split Squats", "Step-Ups", "Calf Raises", "Goblet Squats", "Hack Squats", "Box Jumps", "Seated Calf Raises"]
+
+full_body = [chest_exercises, back_exercises, shoulder_exercises, bicep_exercises, tricep_exercises, leg_exercises]
+
+
+#workout_type = input("Please select one of the following workout types: Select 'B' for BodyWeight. 'D' for Dumbbell Only. 'F' for Full Gym Workout : ").lower()
+#print()
+#workout_selection = input("Please select a bodypart you want to train: Chest - Back - Shoulders - Biceps - Triceps - Legs - Full Body : ").lower()
+#print()
+#workout_intensity = input("Please select a workout level. Select 'B' for Beginner. 'I' for Intermediate, 'A' for Advanced : ").lower()
+#print()
+
+#Number of Exercises
+beginner = 4 
+intermediate = 5 
+advanced = 6 
+
+#Sets and Reps
+beginner_set = random.randint(2,3)
+advanced_set = random.randint(3,4)
+reps = random.randint(8,12)
+
+#Functions
+def bodyweight_workoout():
+        for c in range(0, intermediate): 
+            workout = random.choice(bodyweight)
+            print(f"{workout} - {advanced_set} sets of {reps} reps") 
+        exit()
+
+def dumbbell_workout():
+    for c in range(0, intermediate): 
+        workout = random.choice(dumbbell_exercises)
+        print(f"{workout} - {advanced_set} sets of {reps} reps")
+    exit()
+
+#Start of Program
+print("Welcome to the Workout Generator")
+
+workout_type = input("Please select one of the following workout types: Select 'B' for BodyWeight. 'D' for Dumbbell Only. 'F' for Full Gym Workout : ").lower()
+print() 
+
+if workout_type == 'b':
+    bodyweight_workoout()
+
+if workout_type == 'd':
+    dumbbell_workout()
+       
+if workout_type == 'f':
+
+    workout_selection = input("Please select a bodypart you want to train: Chest - Back - Shoulders - Biceps - Triceps - Legs - Full Body : ").lower()
+    print()
+    workout_intensity = input("Please select a workout level. Select 'B' for Beginner. 'I' for Intermediate, 'A' for Advanced : ").lower()
+
+    if workout_selection == 'chest':
+        if workout_intensity == 'b':
+            for c in range(0, beginner):
+                workout = random.choice(chest_exercises)
+                print(f"{workout} - {beginner_set} sets of {reps} reps")
+        elif workout_intensity == 'i':
+            for c in range(0, intermediate):
+                workout = random.choice(chest_exercises)
+                print(f"{workout} - {beginner_set} sets of {reps} reps")
+        elif workout_intensity == 'a':
+            for c in range(0, advanced):
+                workout = random.choice(chest_exercises)
+                print(f"{workout} - {advanced_set} sets of {reps} reps")
+        else:
+            print("Invalid Input, please try again")
+            print()
+
+
+    if workout_selection == 'back':
+        if workout_intensity == 'b':
+            for c in range(0, beginner):
+                workout = random.choice(back_exercises)
+                print(f"{workout} - {beginner_set} sets of {reps} reps")
+        elif workout_intensity == 'i':
+            for c in range(0, intermediate):
+                workout = random.choice(back_exercises)
+                print(f"{workout} - {beginner_set} sets of {reps} reps")
+        elif workout_intensity == 'a':
+            for c in range(0, advanced):
+                workout = random.choice(back_exercises)
+                print(f"{workout} - {advanced_set} sets of {reps} reps")
+        else:
+            print("Invalid Input, please try again")
+            print()
+
+
+    if workout_selection == 'shoulders':
+        if workout_intensity == 'b':
+            for c in range(0, beginner):
+                workout = random.choice(shoulder_exercises)
+                print(f"{workout} - {beginner_set} sets of {reps} reps")
+        elif workout_intensity == 'i':
+            for c in range(0, intermediate):
+                workout = random.choice(shoulder_exercises)
+                print(f"{workout} - {beginner_set} sets of {reps} reps")
+        elif workout_intensity == 'a':
+            for c in range(0, advanced):
+                workout = random.choice(shoulder_exercises)
+                print(f"{workout} - {advanced_set} sets of {reps} reps")
+        else:
+            print("Invalid Input, please try again")
+            print()
+
+
+    if workout_selection == 'biceps':
+        if workout_intensity == 'b':
+            for c in range(0, beginner):
+                workout = random.choice(bicep_exercises)
+                print(f"{workout} - {beginner_set} sets of {reps} reps")
+        elif workout_intensity == 'i':
+            for c in range(0, intermediate):
+                workout = random.choice(bicep_exercises)
+                print(f"{workout} - {beginner_set} sets of {reps} reps")
+        elif workout_intensity == 'a':
+            for c in range(0, advanced):
+                workout = random.choice(bicep_exercises)
+                print(f"{workout} - {advanced_set} sets of {reps} reps")
+        else:
+            print("Invalid Input, please try again")
+            print()
+
+
+    if workout_selection == 'triceps':
+        if workout_intensity == 'b':
+            for c in range(0, beginner):
+                workout = random.choice(tricep_exercises)
+                print(f"{workout} - {beginner_set} sets of {reps} reps")
+        elif workout_intensity == 'i':
+            for c in range(0, intermediate):
+                workout = random.choice(tricep_exercises)
+                print(f"{workout} - {beginner_set} sets of {reps} reps")
+        elif workout_intensity == 'a':
+            for c in range(0, advanced):
+                workout = random.choice(tricep_exercises)
+                print(f"{workout} - {advanced_set} sets of {reps} reps")
+        else:
+            print("Invalid Input, please try again")
+            print()
+
+
+    if workout_selection == 'legs':
+        if workout_intensity == 'b':
+            for c in range(0, beginner):
+                workout = random.choice(leg_exercises)
+                print(f"{workout} - {beginner_set} sets of {reps} reps")
+        elif workout_intensity == 'i':
+            for c in range(0, intermediate):
+                workout = random.choice(leg_exercises)
+                print(f"{workout} - {beginner_set} sets of {reps} reps")
+        elif workout_intensity == 'a':
+            for c in range(0, advanced):
+                workout = random.choice(leg_exercises)
+                print(f"{workout} - {advanced_set} sets of {reps} reps")
+        else:
+            print("Invalid Input, please try again")
+            print()
+
+
+    if workout_selection == 'full body':
+        if workout_intensity == 'b':
+            for c in range(0, beginner):
+                workout = random.choice(full_body)
+                print(f"{workout} - {beginner_set} sets of {reps} reps")
+        elif workout_intensity == 'i':
+            for c in range(0, intermediate):
+                workout = random.choice(full_body)
+                print(f"{workout} - {beginner_set} sets of {reps} reps")
+        elif workout_intensity == 'a':
+            for c in range(0, advanced):
+                workout = random.choice(full_body)
+                print(f"{workout} - {advanced_set} sets of {reps} reps")
+        else:
+            print("Invalid Input, please try again")
+            print()   
