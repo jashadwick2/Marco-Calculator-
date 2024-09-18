@@ -1,0 +1,38 @@
+#Marco Calculator 
+current_goal = input("What is your goal: Type 'L' for Lose Weight, Type 'M' for Maintain Weight or Type 'G' for Gain Weight ").upper()
+print()
+current_weight = int(input("Please enter your current weight: "))
+
+lose_weight = 14
+maintain_weight = 15
+gain_weight = 16
+
+if current_goal == 'L':
+    calories = (current_weight * lose_weight) - 100
+    protein = current_weight 
+    protein_calories = protein * 4
+    carbs = round(((calories - protein_calories) * .65) / 4)
+    fats = round(((calories - protein_calories) * .35) / 9)
+    print(f"You should enter {calories} a day to lose weight")
+    print(f"Current macros: Protein = {protein} grams. Carbs = {carbs} grams and Fats = {fats} grams a day ")
+    print()
+
+if current_goal == 'M':
+    calories = (current_weight * maintain_weight)
+    protein = current_weight
+    protein_calories = protein * 4
+    carbs = round(((calories - protein_calories) * .65) / 4)
+    fats = round(((calories - protein_calories) * .35) / 9)
+    print(f"You should enter {calories} a day to maintain weight" )
+    print(f"Current macros: Protein = {protein} grams. Carbs = {carbs} grams and Fats = {fats} grams a day ")
+    print()
+
+if current_goal == 'G':
+    calories = (current_weight * gain_weight) + 100
+    protein = current_weight + 25
+    protein_calories = protein * 4
+    carbs = round(((calories - protein_calories) * .65) / 4)
+    fats = round(((calories - protein_calories) * .35) / 9)
+    print(f"You should enter {calories} a day to gain weight" )
+    print(f"Current macros: Protein = {protein} grams. Carbs = {carbs} grams and Fats = {fats} grams a day ")
+    print() 
